@@ -19,4 +19,7 @@ set filename=%date:~6,4%-%date:~3,2%-%date:~0,2%_%hour%%time:~3,2%
 "%winrarPath%winrar" a  %outputFolder%%filename%.rar %outputFolder%%filename%.sql
 del %outputFolder%%filename%.sql
 echo Done
+:: upload
+curl -u username:passwort -T %outputFolder%%filename%.rar "http://ipaddress/nextcloud/remote.php/dav/files/username/foldername/%filename%.rar"
+
 ::pause
